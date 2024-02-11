@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        html{
+            margin: 0;
+            padding: 0;
+        }
+        #clock{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            font-size: 10rem;
+        }
+    </style>
+</head>
+ <body>
+        <div id="clock">
+        <div id="hours">00</div>
+        <div id="minutes">00</div>
+        <div id="seconds">00</div>
+        </div>
+    <script>
+function updateClock(){
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    hours = (hours < 10) ? "0" + hours : hours;
+    if(minutes < 10){
+        minutes = "0" + minutes
+    }else{
+        minutes = minutes
+    }
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    document.getElementById("hours").textContent = hours + ":";
+    document.getElementById("minutes").textContent = minutes + ":";
+    document.getElementById("seconds").textContent = seconds;
+    }
+      setInterval(updateClock, 1);
+      updateClock();
+    </script>
+ </body>
+</html> 
